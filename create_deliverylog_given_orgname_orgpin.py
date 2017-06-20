@@ -35,7 +35,12 @@ try:
       print values[2]
       ts = time.time()
       timestamp = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-      buffer = 'insert into deliverylog (delivery_id, delivery_timestamp, delivery_customer, delivery_quantity, delivery_vehicle) values (' + str(uuid.uuid4()) + ',' + '\'' + timestamp + '\'' + ',' + '\'' + values[0] + '\''  + ',' + values[1] + ',' + '\'' + values[2] + '\'' + ')' 
+      buffer = 'insert into deliverylogbytimestamp (delivery_id, delivery_timestamp, delivery_customer, delivery_quantity, delivery_vehicle) values (' + str(uuid.uuid4()) + ',' + '\'' + timestamp + '\'' + ',' + '\'' + values[0] + '\''  + ',' + values[1] + ',' + '\'' + values[2] + '\'' + ')' 
+      print buffer
+      session.execute(buffer)
+      buffer = 'insert into deliverylogbycustomer (delivery_id, delivery_timestamp, delivery_customer, delivery_quantity, delivery_vehicle) values (' + str(
+         uuid.uuid4()) + ',' + '\'' + timestamp + '\'' + ',' + '\'' + values[0] + '\'' + ',' + values[1] + ',' + '\'' + \
+               values[2] + '\'' + ')'
       print buffer
       session.execute(buffer)
    fo.close()  

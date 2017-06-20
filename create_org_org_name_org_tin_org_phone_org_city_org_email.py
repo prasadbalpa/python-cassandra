@@ -111,7 +111,11 @@ try:
    session.execute(buffer)
    print "deliverylog table created Successfully...."
    print "***************************************"
-
+   buffer = 'create table deliverylogbyid (delivery_id uuid, delivery_customer text, delivery_timestamp text, delivery_quantity int, delivery_vehicle text, PRIMARY KEY(delivery_id))'
+   print buffer
+   session.execute(buffer)
+   print "deliverylog table created Successfully...."
+   print "***************************************"
    print "Creating table users for the organization....."
    buffer = 'create table users(user_id uuid, user_userphone text PRIMARY KEY, user_passwd text, user_username text, user_role text)'
    print buffer

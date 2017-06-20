@@ -32,11 +32,11 @@ try:
    session.execute(buffer)
    print "table org created successfully"
    print "***************************************"
-   buffer = 'create table sessionbysessionid (session_id uuid, session_authorization text, session_otp text, session_sessionid uuid, session_created text, session_expired boolean, session_phone text, session_loggedin boolean, PRIMARY KEY(session_sessionid, session_created)) with clustering order by (session_created DESC)'
+   buffer = 'create table sessionbysessionid (session_id uuid, session_authorization text, session_otp text, session_sessionid uuid, session_created text, session_expired boolean, session_phone text, session_loggedin boolean, PRIMARY KEY((session_sessionid), session_created)) with clustering order by (session_created DESC)'
    print buffer
    session.execute(buffer)
    print "***************************************"
-   buffer = 'create table sessionbyauthorization (session_id uuid, session_authorization text, session_otp text, session_sessionid uuid, session_created text, session_expired boolean, session_phone text, session_loggedin boolean, PRIMARY KEY(session_phone, session_created)) with clustering order by (session_created DESC)'
+   buffer = 'create table sessionbyauthorization (session_id uuid, session_authorization text, session_otp text, session_sessionid uuid, session_created text, session_expired boolean, session_phone text, session_loggedin boolean, PRIMARY KEY((session_authorization), session_created)) with clustering order by (session_created DESC)'
    print buffer
    session.execute(buffer)
    print "***************************************"
@@ -48,7 +48,7 @@ try:
    print buffer
    session.execute(buffer)
    print "***************************************"
-   buffer = 'create table sessionbyphone (session_id uuid, session_authorization text, session_otp text, session_sessionid uuid, session_created text, session_expired boolean, session_phone text, session_loggedin boolean, PRIMARY KEY(session_phone, session_id)) with clustering order by (session_id ASC)'
+   buffer = 'create table sessionbyphone (session_id uuid, session_authorization text, session_otp text, session_sessionid uuid, session_created text, session_expired boolean, session_phone text, session_loggedin boolean, PRIMARY KEY((session_phone), session_id)) with clustering order by (session_id ASC)'
    print buffer
    session.execute(buffer)
    print "***************************************"

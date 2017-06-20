@@ -39,7 +39,7 @@ try:
       print buffer
       session.execute(buffer)
       #*************Update the user org map here*************
-      buffer = 'insert into usermapbyphone (usermap_id, usermap_orgname, usermap_username, usermap_userphone) values (' + str(uuid.uuid4()) + ',\'' + rows[0].org_name + '\',' + '\'' + values[0] + '\',' + '\'' + values[1] + '\')' 
+      buffer = 'insert into usermapbyphone (usermap_id, usermap_orgname, usermap_username, usermap_userphone, usermap_orgtin) values (' + str(uuid.uuid4()) + ',\'' + rows[0].org_name + '\',' + '\'' + values[0] + '\',' + '\'' + values[1] + '\',' + '\'' + sys.argv[2] + '\'' + ')'
       print buffer
       usermapsession.execute(buffer)
    fo.close()  
