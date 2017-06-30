@@ -5,7 +5,7 @@ import traceback
 import uuid
 import datetime 
 import time
-cluster = Cluster(['127.0.0.1'])
+cluster = Cluster(['iaccounts-cassandra-1'])
 session = cluster.connect('organization')
 
 #create.py $org_name $org_tin $org_phone $org_city $org_created
