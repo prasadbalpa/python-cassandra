@@ -1,0 +1,1 @@
+supplier_id, supplier_name, supplier_email, supplier_city, supplier_tin, supplier_phone

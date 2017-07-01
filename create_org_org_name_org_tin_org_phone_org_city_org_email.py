@@ -122,6 +122,18 @@ try:
    session.execute(buffer)
    print "users table created Successfully..."
    print "***************************************"
+   print "Creating table purchases for the organization....."
+   buffer = 'create table purchasesbytimestamp(purchase_timestamp text, purchase_supplier text, purchase_orderid text, purchase_product text, purchase_quantity int, purchase_price decimal, purchase_id uuid, purchase_vehicle text, PRIMARY KEY(purchase_timestamp, purchase_id, purchase_supplier)) with clustering order by (purchase_id ASC, purchase_supplier ASC)'
+   print buffer
+   session.execute(buffer)
+   print "users table created Successfully..."
+   print "***************************************"
+   print "Creating table supplier for the organization....."
+   buffer = 'create table supplierbyname (supplier_id uuid, supplier_name text, supplier_phone text, supplier_city text, supplier_tin, PRIMARY KEY (supplier_name, supplier_tin, supplier_id)) with clustering order by (supplier_tin ASC, supplier_id ASC)'
+   print buffer
+   session.execute(buffer)
+   print "users table created Successfully..."
+   print "***************************************"
 except Exception as e:
    logging.error(traceback.format_exc())
    print "Failed to configure the tables for the organization...."
